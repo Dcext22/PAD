@@ -5,9 +5,10 @@ ob_start();
 include_once './conexao.php';
 
 $id = filter_input(INPUT_GET, "id", FILTER_SANITIZE_NUMBER_INT);
+var_dump($id);
 
 if(empty($id)){
-    $_SESSION['msg'] = "<p style='color: #f00;'>Usuário não encontrado !</p>";
+    $_SESSION['msg'] = "<p style='color: #f00;'> Usuário não encontrado !</p>";
     header("Location: index.php");
     exit();
 }
@@ -29,7 +30,6 @@ if(($result_usuario) and ($result_usuario->rowCount() != 0)) {
         $_SESSION['msg'] = "<p style='color: #f00;'>Usuário não deletado com sucesso !</p>";
         header("Location: index.php");
     }
-
 }
 else{
     $_SESSION['msg'] = "<p style='color: #f00;'>Usuário não encontrado !</p>";

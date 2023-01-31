@@ -33,6 +33,7 @@ else{
         <title>PAD - Editar</title>
     </head>
     <body>
+        <a href="login.php">Login</a><br>
         <a href="index.php">Listar</a><br>
         <a href="cadastro.php">Cadastrar</a><br>
 

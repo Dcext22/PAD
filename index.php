@@ -10,6 +10,7 @@ include_once './conexao.php';
         <title>PAD - Listar</title>
     </head>
     <body>
+        <a href="login.php">Login</a><br>
         <a href="index.php">Listar</a><br>
         <a href="cadastro.php">Cadastrar</a><br>
         <h1>Listar</h1>
@@ -81,7 +82,7 @@ include_once './conexao.php';
             echo "<a href='index.php?page=$qnt_pagina'>Última </a>";
         }
         else{
-            echo "<p style='color: #f00; '>Error: Nenhum usuário nessa página !</p>";
+            echo "<p style='color: #f00; '>Nenhum usuário nessa página !</p>";
         }
         
         ?>
