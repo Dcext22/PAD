@@ -13,7 +13,7 @@ if((!isset($_SESSION['id'])) AND (!isset($_SESSION['nome']))){
 
 <head>
     <meta charset="UTF-8">
-    <title>PAD - Login</title>
+    <title>PAD - Conta</title>
 </head>
 
 <body>

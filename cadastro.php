@@ -16,13 +16,12 @@ include_once './conexao.php';
     <head>
         <meta charset="UTF-8">
         <title>PAD - Cadastro</title>
-    </head>
-    <body>
-        <a href="login.php">Login</a><br>
-        <a href="index.php">Listar</a><br>
-        <a href="cadastro.php">Cadastrar</a><br>
-        <h1>Cadastrar</h1>
-        <?php
+        <link rel="stylesheet" href="assets/css/cadastro.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+
+<body>
+    <?php
         $dados = filter_input_array(INPUT_POST, FILTER_DEFAULT);
 
         if (!empty($dados['cadusuario'])) {
@@ -80,8 +79,8 @@ include_once './conexao.php';
                         Para que o processo seja concluído por favor clique no link a seguir: \n\n http://localhost/PAD/confirmar-email.php?chave=$chave";
                     
                         $mail->send();
-                        echo $_SESSION['msg'] = "<p style='color: green;'>Usuário cadastrado porfavor cheque seu email!</p>";
-                        header("Location: index.php");;
+                        echo $_SESSION['msg'] = "<p style='color: green;'>Usuário cadastrado com sucesso! Por favor, confira seu e-mail !</p>";
+                        header("Location: confirmar-email.php");;
 
                     }catch (Exception $e) {
                         echo "cadastro não pôde ser concluído: {$mail->ErrorInfo}";
@@ -89,7 +88,7 @@ include_once './conexao.php';
                     
                     unset($dados);
                     $_SESSION['msg'] = "<p style='color: green;'>Usuário cadastrado por favor cheque seu email!</p>";
-                    header("Location: index.php");
+                    header("Location: confirmar-email.php");
                 }
                 else{
                     echo "<p style='color: #f00; '>Erro: Usuário não cadastrado !</p>";
@@ -97,24 +96,26 @@ include_once './conexao.php';
             }
         }
         ?>
-        <form name="cad-usuario" method="POST" action="">
-            <label>Nome: </label>
-            <input type="text" name="nome" id="nome" placeholder="" value="<?php if (isset($dados['nome'])) {
-            echo $dados['nome'];
-            }
-            ?>"><br><br>
+        <form class="login" name="cad-usuario" method="POST" action="">
+            <h2>Cadastro</h2>
+            <div class="box-user">
+                <input type="text" name="nome">
+                <label>Nome</label>
+            </div>
 
-            <label>E-mail: </label>
-            <input type="e-mail" name="email" id="email" placeholder="" value="<?php if (isset($dados['email'])) {
-            echo $dados['email'];
-            }
-            ?>"><br><br>
-
-            <label>Senha: </label>
-            <input type="text" name="senha" id="senha" placeholder=""><br><br>
-
-            <input type="submit" value="cadastrar" name="cadusuario">
-
-        </form>
+            <div class="box-user">
+                <input type="text" name="email">
+                <label>E-mail</label>
+            </div>
+            <div class="box-user">
+                <input type="password" name="senha">
+                <label>Senha</label>
+            </div>
+        <div>
+            <a href="login.php" class="cadastro">Já possui cadastro ?</a>
+            <a href="index.html"><span class="material-symbols-outlined">home</a></span>
+        </div>
+        <input type="submit" name="cadusuario" class="botao">
+    </form>
     </body>
 </html>

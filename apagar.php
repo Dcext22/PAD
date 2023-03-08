@@ -8,8 +8,8 @@ $id = filter_input(INPUT_GET, "id", FILTER_SANITIZE_NUMBER_INT);
 var_dump($id);
 
 if(empty($id)){
-    $_SESSION['msg'] = "<p style='color: #f00;'> Usuário não encontrado !</p>";
-    header("Location: index.php");
+    $_SESSION['msg'] = "<p style='color: #f00;'>Usuário não encontrado !</p>";
+    header("Location: index.html");
     exit();
 }
 
@@ -24,14 +24,14 @@ if(($result_usuario) and ($result_usuario->rowCount() != 0)) {
 
     if($del_usuario->execute()){
         $_SESSION['msg'] = "<p style='color: green;'>Usuário deletado com sucesso !</p>";
-        header("Location: index.php");
+        header("Location: index.html");
     }
     else{
         $_SESSION['msg'] = "<p style='color: #f00;'>Usuário não deletado com sucesso !</p>";
-        header("Location: index.php");
+        header("Location: index.html");
     }
 }
 else{
     $_SESSION['msg'] = "<p style='color: #f00;'>Usuário não encontrado !</p>";
-    header("Location: index.php");
+    header("Location: index.html");
 }

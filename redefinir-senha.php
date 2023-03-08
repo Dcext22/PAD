@@ -17,12 +17,11 @@ include_once 'conexao.php';
     <head>
         <meta charset="UTF-8">
         <title>PAD - Redefinir</title>
+        <link rel="stylesheet" href="assets/css/redefinir1.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     </head>
     <body>
-        <a href="login.php">Login</a><br>
-        <a href="cadastro.php">Cadastrar</a><br>
-        <h1>Redefinir senha</h1>
-        <?php
+    <?php
         $dados = filter_input_array(INPUT_POST, FILTER_DEFAULT);
         if (!empty($dados['Redefinir'])) {
             $query_usuario = "SELECT * FROM usuarios WHERE email=:email LIMIT 1";
@@ -65,7 +64,7 @@ include_once 'conexao.php';
                         $mail->isHTML(true);
                         $mail->Subject = 'Redefinição de Senha';
 
-                        $mail->Body = "caro(a) " . $_SESSION['nome'] . "<br><br> para que a redefinição de senha seja concluída por favor clique no link a seguir:  <br><br>
+                        $mail->Body = "Caro(a) " . $_SESSION['nome'] . "<br><br> para que a redefinição de senha seja concluída por favor clique no link a seguir:  <br><br>
                         <br><br> <a href='http://localhost/PAD/redefinir.php?chave=$chave'>Clique aqui</a>";
 
                         $mail->AltBody = "caro(a) " . $_SESSION['nome'] . "\n\n para que a redefinição de senha seja concluída por favor clique no link a seguir: \n\n
@@ -73,7 +72,7 @@ include_once 'conexao.php';
 
                         $mail->send();
                         echo $_SESSION['msg'] = "<p style='color: green;'>E-mail enviado, porfavor cheque seu email!</p>";
-                        header("Location: index.php");
+                        header("Location: cadastro.html");
                         ;
 
                     } catch (Exception $e) {
@@ -82,7 +81,7 @@ include_once 'conexao.php';
 
                     unset($dados);
                     $_SESSION['msg'] = "<p style='color: green;'>E-mail enviado, porfavor cheque seu email!</p>";
-                    header("Location: index.php");
+                    header("Location: index.html");
                 } else {
                     echo "<p style='color: #f00; '>Erro: E-mail não encontrado !</p>";
                 }
@@ -96,11 +95,18 @@ include_once 'conexao.php';
             }
         }
         ?>
-        <form method="POST" action="">
-            <label>Digite seu email: </label>
-            <input type="text" name="email"><br><br>
-
-            <input type="submit" value="Confirmar" name="Redefinir">
+        <form class="login" name="cad-redefinir" method="POST" action="">
+            <h2>Redefinir Senha<h2>
+            <div class="box-user">
+                <input type="text" name="email">
+                <label>E-mail</label>
+            </div>
+        <div>
+            <a href="login.php" class="cadastro">Já possui cadastro ?</a>
+            <a href="cadastro.php" class="cadastro">Não possui cadastro ? Crie uma conta</a>
+            <a href="index.html"><span class="material-symbols-outlined">home</a></span>
+        </div>
+            <input type="submit" name="Redefinir" class="botao">
         </form>
     </body>
 

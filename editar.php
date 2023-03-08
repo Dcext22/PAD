@@ -7,7 +7,7 @@ $id = filter_input(INPUT_GET, "id", FILTER_SANITIZE_NUMBER_INT);
 
 if(empty($id)){
     $_SESSION['msg'] = "<p style='color: #f00;'>Usuário não encontrado !</p>";
-    header("Location: index.php");
+    header("Location: index.html");
     exit();
 }
 

@@ -10,10 +10,11 @@ include_once './conexao.php';
     <head>
         <meta charset="UTF-8">
         <title>PAD - Redefinir</title>
+        <link rel="stylesheet" href="assets/css/redefinir1.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     </head>
-    <body>
-        <h1>Redefinir Senha</h1>
-        <?php
+    <body>        
+    <?php
         $dados = filter_input_array(INPUT_POST, FILTER_DEFAULT);
         $chave = filter_input(INPUT_GET, "chave");
 
@@ -27,11 +28,12 @@ include_once './conexao.php';
                 $row_usuario = $result_usuario->fetch(PDO::FETCH_ASSOC);
                 $id = $row_usuario['id'];
                 $senha = $dados['senha'];
+                
                 if($senha != $row_usuario['senha']){
                     $query_up_senha = "UPDATE usuarios SET senha='$senha', chave=:chave WHERE id=$id";
                     $up_senha= $conn->prepare($query_up_senha);
                     $chave = NULL;
-                    $up_usuario->bindParam(':chave', $chave, PDO::PARAM_STR);
+                    $up_senha->bindParam(':chave', $chave, PDO::PARAM_STR);
                     $up_senha->execute();
 
                     if($up_senha->rowCount()){
@@ -50,12 +52,16 @@ include_once './conexao.php';
         }
 
         ?>
-    <form name="cad-senha" method="POST" action="">
-
-        <label>Nova senha: </label>
-        <input type="text" name="senha" id="senha" placeholder=""><br><br>
-        <input type="submit" value="Redefinir" name="Redefinir">
-
+        <form class="login" name="cad-senha" method="POST" action="">
+            <h2>Redefinir Senha<h2>
+            <div class="box-user">
+                <input type="text" name="senha">
+                <label>Nova senha</label>
+            </div>
+        <div>
+            <a href="index.html"><span class="material-symbols-outlined">home</a></span>
+        </div>
+            <input type="submit" name="Redefinir" class="botao">
         </form>
     </body>
 </html>

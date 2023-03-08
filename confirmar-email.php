@@ -8,7 +8,7 @@ include_once './conexao.php';
 $chave = filter_input(INPUT_GET, "chave", FILTER_SANITIZE_STRING);
 
 if(!empty($chave)){
-    //echo "Chave: $chave <br>";
+
     $query_usuario = "SELECT id FROM usuarios WHERE chave = :chave LIMIT 1";
     $result_usuario = $conn->prepare($query_usuario);
     $result_usuario->bindParam(':chave', $chave, PDO::PARAM_STR);
@@ -24,20 +24,21 @@ if(!empty($chave)){
         $up_usuario->bindParam(':chave', $chave, PDO::PARAM_STR);
 
         if($up_usuario->execute()){
-            $_SESSION['msg'] = "<p style='color: green;'>email confirmado !</p>";
-            header("Location: index.php");
+            $_SESSION['msg'] = "<p style='color: green;'>Email confirmado !</p>";
+            header("Location: cadastro.php");
         
         }else{
-            $_SESSION['msg'] = "<p style='color: #f00;'>email não confirmado !</p>";
-            header("Location: index.php");
+            $_SESSION['msg'] = "<p style='color: #f00;'>Email não confirmado !</p>";
+            header("Location: cadastro.php");
         }
     
     } else {
         $_SESSION['msg'] = "<p style='color: #f00;'>Endereço inválido !</p>";
-        header("Location: index.php");
+        header("Location: cadastro.php");
     }
 
 }else{
     $_SESSION['msg'] = "<p style='color: #f00; '>Ocorreu um erro !</p>";
-    header("Location: index.php");
+    header("Location: cadastro.php");
 }
+?>

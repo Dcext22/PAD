@@ -1,0 +1,160 @@
+*{
+
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+
+}
+
+a.topo{
+
+    transform: translate(214px, -485px);
+    background: white;
+    width: 45px;
+
+}
+
+
+body{
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-image:linear-gradient(to right, #7f00ff 0%, #7f00ff 44%, #e100ff 100%);
+
+}
+
+
+.login{
+
+    background: rgba(0, 0, 0, .5);
+    border-radius: 10px;
+    width: 410px;
+    padding: 45px;
+    padding-bottom: 106px;
+    padding-bottom:91px !important;
+    padding-top:62px !important;
+    
+}
+
+.login a span{
+    padding-bottom:5px;
+    transform:translatex(0px) translatey(-297px);
+    min-height:40px;
+    width:51px;
+   }
+
+.login h2{
+
+    margin-bottom: 30px;
+    font-size: 30px;
+    color: white;
+    text-align: center;
+}
+
+.login .box-user{
+
+    position: relative;
+
+}
+
+.login .box-user input{
+
+    width: 100%;
+    padding: 10px 0;
+    outline: none;
+    border: 0;
+    background: transparent;
+    border-bottom: 1px solid white;
+    color: white;
+    font-size: 16px;
+    margin-bottom: 30px;
+}
+
+.login .box-user label{
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px 0;
+    color: white;
+    font-size: 16px;
+    pointer-events: none;
+    transition: .5s;
+
+}
+
+.login .box-user input:valid~label
+{
+
+    top: -20px;
+    left: 0;
+    color: white;
+    font-size: 12px;
+
+}
+
+.forgot{
+
+    font-size: 12px;
+    color: white;
+    float: right;
+    text-decoration: none;
+    padding: 5px;
+    border-radius: 10px;
+    
+}
+
+.cadastro{
+
+    font-size: 12px;
+    color: white;
+    float: right;
+    text-decoration: none;
+    padding: 5px;
+    border-radius: 10px;
+
+}
+
+.botao{
+
+    position: relative;
+    display: inline-block;
+    padding: 12px 20px;
+    color: gold;
+    text-decoration: none;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-weight: 700;
+    margin-top: 20px;
+    transition: .5s;
+    overflow: hidden;
+    border-radius: 5px;
+
+}
+
+p{
+
+    font-family: sans-serif;
+    color: white;
+    position: absolute;
+    margin-left: 0%;
+    margin-bottom: -25%;
+}
+
+
+.foto h1{
+    background-position-x:0%;
+    padding-left:0px;
+    margin-left:0px;
+    position:relative;
+    left:-250px;
+    display:inline-block;
+    min-height:225px;
+    width:421% !important;
+    border-radius: 5px;
+    background-image: url("/img/logoperfetita.png");
+}
