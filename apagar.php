@@ -9,7 +9,7 @@ var_dump($id);
 
 if(empty($id)){
     $_SESSION['msg'] = "<p style='color: #f00;'>Usuário não encontrado !</p>";
-    header("Location: index.html");
+    header("Location: index.php");
     exit();
 }
 
@@ -24,14 +24,14 @@ if(($result_usuario) and ($result_usuario->rowCount() != 0)) {
 
     if($del_usuario->execute()){
         $_SESSION['msg'] = "<p style='color: green;'>Usuário deletado com sucesso !</p>";
-        header("Location: index.html");
+        header("Location: index.php");
     }
     else{
         $_SESSION['msg'] = "<p style='color: #f00;'>Usuário não deletado com sucesso !</p>";
-        header("Location: index.html");
+        header("Location: index.php");
     }
 }
 else{
     $_SESSION['msg'] = "<p style='color: #f00;'>Usuário não encontrado !</p>";
-    header("Location: index.html");
+    header("Location: index.php");
 }

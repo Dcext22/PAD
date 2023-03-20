@@ -1,3 +1,4 @@
+
 *{
 
     margin: 0;
@@ -5,6 +6,10 @@
     box-sizing: border-box;
     font-family: sans-serif;
 
+}
+
+form{
+    height:570px;
 }
 
 a.topo{
@@ -26,11 +31,6 @@ body{
 
 }
 
-form{
-    height:571px;
-    padding-top:39px !important;
-   }
-
 
 .login{
 
@@ -45,13 +45,11 @@ form{
 }
 
 .login a span{
-    position: relative;
     padding-bottom:5px;
-    transform:translatex(0px) translatey(-347px);
+    transform:translatex(0px) translatey(-382px);
     min-height:40px;
     width:51px;
    }
-
 
 .login h2{
 
@@ -163,5 +161,4 @@ p{
     min-height:225px;
     width:421% !important;
     border-radius: 5px;
-    background-image: url("/img/logoperfetita.png");
 }

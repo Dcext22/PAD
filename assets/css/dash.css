@@ -1,0 +1,280 @@
+@import url("//fonts.googleapis.com/css2?family=Annie+Use+Your+Telescope:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap");
+
+*{
+
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+
+}
+
+body{
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size:cover;
+    min-height:585px;
+    background-position-x:0%;
+    background-position-y:0%;
+    background-repeat:repeat;
+    color:rgb(0, 0, 0);
+    background-clip:border-box;
+    background-size:100% 150%;
+
+}
+
+.box{
+    width:477px;
+    min-height:603px;
+    border-top-left-radius:6px;
+    border-color:#000000;
+    border-width:1px;
+    background-color:#eeecec;
+    border-style:solid;
+    border-top-right-radius:6px;
+    border-bottom-left-radius:6px;
+    border-bottom-right-radius:6px;
+    padding-left:0px;
+   }
+
+   .box .foto img{
+    display:inline-block;
+    height:131px;
+    width:25% !important;
+    transform:translatex(23px) translatey(4px);
+    min-height:120px;
+    border-style:solid;
+    border-width:1px;
+    border-top-left-radius:3px;
+    border-top-right-radius:3px;
+    border-bottom-left-radius:3px;
+    border-bottom-right-radius:3px;
+   }
+   
+   .box .Saudacao p{
+    min-height:37px;
+    transform:translatex(12px) translatey(-26px);
+    text-align:center;
+    font-weight:600;
+    font-family:'Courier New',Courier,'Lucida Sans Typewriter','Lucida Typewriter',monospace;
+    font-size:31px;
+    font-style:normal;
+    text-decoration:underline;
+    direction:ltr;
+    column-count:1;
+   }
+
+   .box .texts .nome{
+    transform:translatex(6px) translatey(0px);
+    width:464px;
+    font-size:19px;
+    line-height:23.1px;
+    min-height:38px;
+    height:38px;
+   }
+
+   .box .nome{
+    height:35px;
+   }
+
+   .texts .nome .texto{
+    width:389px !important;
+    text-decoration:none;
+    border-style:none;
+    border-bottom-style:solid;
+    min-height:23px;
+    padding-left:0px;
+    overflow:hidden;
+    font-size:26px;
+    height:23px;
+    min-height:35px;
+    line-height:34.6px;
+    transform:translatex(65px) translatey(-29px);
+    text-transform:capitalize;
+    text-align:left;
+    font-family:'Annie Use Your Telescope', handwriting;
+   }
+
+   .box .texts .email{
+    transform:translatex(6px) translatey(0px);
+    width:464px;
+    font-size:19px;
+    line-height:23.1px;
+    min-height:38px;
+    height:38px;
+   }
+
+   .box .email{
+    height:35px;
+   }
+
+   .texts .email .texto{
+    width:389px !important;
+    text-decoration:none;
+    border-style:none;
+    border-bottom-style:solid;
+    min-height:23px;
+    padding-left:0px;
+    overflow:hidden;
+    font-size:26px;
+    height:23px;
+    min-height:35px;
+    line-height:34.6px;
+    transform:translatex(65px) translatey(-29px);
+    text-align:left;
+    font-family:'Annie Use Your Telescope', handwriting;
+   }
+
+   .box .texts .CPF{
+    transform:translatex(6px) translatey(0px);
+    width:464px;
+    font-size:19px;
+    line-height:23.1px;
+    min-height:38px;
+    height:38px;
+   }
+
+   .box .CPF{
+    height:35px;
+   }
+
+   .texts .CPF .texto{
+    width:389px !important;
+    text-decoration:none;
+    border-style:none;
+    border-bottom-style:solid;
+    min-height:23px;
+    padding-left:0px;
+    overflow:hidden;
+    font-size:26px;
+    height:23px;
+    min-height:35px;
+    line-height:34.6px;
+    transform:translatex(65px) translatey(-29px);
+    text-align:left;
+    font-family:'Annie Use Your Telescope', handwriting;
+   }
+
+   .box .texts .Endereco{
+    width:464px;
+    font-size:19px;
+    line-height:23.1px;
+    min-height:57px;
+    transform:translatex(7px) translatey(7px);
+    height:38px;
+   }
+
+   .box .Endereco{
+    height:35px;
+   }
+
+   .texts .Endereco .texto{
+    transform:translatex(93px) translatey(-48px);
+    width:360px !important;
+    text-decoration:none;
+    border-style:none;
+    border-bottom-style:solid;
+    min-height:23px;
+    padding-left:0px;
+    overflow:hidden;
+    font-size:26px;
+    height:23px;
+    min-height:35px;
+    line-height:34.6px;
+    text-align:left;
+    font-family:'Annie Use Your Telescope', handwriting;
+   }
+   
+   .texts .Endereco p{
+    min-height:39px;
+   }
+
+   .box .texts .Anotacoes{
+    font-size:19px;
+    line-height:23.1px;
+    height:38px;
+    min-height:129px;
+    text-align:center;
+    width:464px !important;
+    transform:translatex(0px) translatey(0px);
+   }
+
+   .box .Anotacoes{
+    height:35px;
+   }
+
+   .texts .Anotacoes .texto{
+    text-decoration:none;
+    padding-left:0px;
+    overflow:hidden;
+    font-size:26px;
+    height:23px;
+    min-height:35px;
+    line-height:34.6px;
+    text-align:left;
+    font-family:'Annie Use Your Telescope', handwriting;
+    transform:translatex(6px) translatey(0px);
+    text-align:center;
+    width:475px !important;
+    min-height:91px;
+    font-size:22px;
+    font-weight:300;
+   }
+   
+   .texts .Anotacoes p{
+    font-weight:600;
+    line-height:1em;
+    font-size:23px;
+   }
+
+   .texts .Anotacoes .texto{
+    min-height:152px;
+    width:100% !important;
+    transform:translatex(8px) translatey(0px);
+   }
+   
+   /* Anotacoes */
+   .box .texts .Anotacoes{
+    width:470px;
+   }
+
+   .box a img{
+    display:inline-block;
+    height:43px;
+    width:46px;
+    transform:translatex(410px) translatey(14px);
+   }
+
+   .box a .material-symbols-outlined{
+    min-height:52px;
+    width:39px;
+    transform:translatex(322px) translatey(-475px);
+   }
+
+   .box .sair img{
+    transform:translatex(201px) translatey(71px);
+   }
+   
+   .box .editar img{
+    transform:translatex(362px) translatey(71px);
+   }
+
+   .box .logo img{
+    display:inline-block;
+    transform:translatex(203px) translatey(-163px);
+    min-height:94px;
+    width:92px;
+    border-style:none;
+    border-width:1px;
+   }
+
+   .box .logo{
+    height:5px;
+   }
+
+   .box .apagar img{
+    transform:translatex(271px) translatey(69px);
+   }
+   

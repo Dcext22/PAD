@@ -1,51 +1,35 @@
 <?php
 session_start();
 ob_start();
-include_once './conexao.php';
+include_once 'conexao.php';
 
-$id = filter_input(INPUT_GET, "id", FILTER_SANITIZE_NUMBER_INT);
-
-if(empty($id)){
-    $_SESSION['msg'] = "<p style='color: #f00;'>Usuário não encontrado !</p>";
-    header("Location: index.html");
-    exit();
+if((!isset($_SESSION['id'])) AND (!isset($_SESSION['nome']))){
+    $_SESSION['msg'] = "<p style='color: #ff0000'>Erro: Necessário realizar o login para acessar a página!</p>";
+    header("Location: login.php");
 }
 
-$query_usuario = "SELECT id, nome, email, senha FROM usuarios WHERE id = $id LIMIT 1";
-$result_usuario = $conn->prepare($query_usuario);
-$result_usuario->execute();
-
-if(($result_usuario) and ($result_usuario->rowCount() != 0)){
-    $row_usuario = $result_usuario->fetch(PDO::FETCH_ASSOC);
-}
-else{
-    $_SESSION['msg'] = "<p style='color: #f00;'>Usuário não encontrado !</p>";
-    header("Location: index.php");
-    exit();
-}
+$id = $_SESSION['id'];
 ?>
+<!DOCTYPE html>
+<html lang="pt-br">
 
-<!DOCTYPE html> 
+<head>
+    <meta charset="UTF-8">
+    <title>PAD - Conta</title>
+    <link rel="stylesheet" href="assets/css/ed.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
 
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>PAD - Editar</title>
-    </head>
-    <body>
-        <a href="login.php">Login</a><br>
-        <a href="index.php">Listar</a><br>
-        <a href="cadastro.php">Cadastrar</a><br>
+<body style="background-image:url('img/background2.jpg')">
 
-        <h1>Editar</h1>
-
-        <?php
+<?php
 
         //RECEBER OS DADOS DO FORMULARIO
         $dados = filter_input_array(INPUT_POST, FILTER_DEFAULT);
 
 
         //VERIFICAR SE USUARIO CLICOU NO BOTAO
+        
         if(!empty($dados['edit-usuario'])){
             $empty_input = false;
             $dados = array_map('trim', $dados);
@@ -58,59 +42,110 @@ else{
             }
 
             if(!$empty_input){
-                $query_up_usuario = "UPDATE usuarios SET nome=:nome, email=:email, senha=:senha WHERE id=:id";
+                if($_SESSION['type'] == 'U'){
+                $query_up_usuario = "UPDATE usuarios SET nome=:nome, email=:email, cpf=:cpf, endereco=:endereco, anotacoes=:anotacoes WHERE id=:id";
                 $edit_usuario = $conn->prepare($query_up_usuario);
                 $edit_usuario->bindParam(':nome', $dados['nome'], PDO::PARAM_STR);
                 $edit_usuario->bindParam(':email', $dados['email'], PDO::PARAM_STR);
-                $edit_usuario->bindParam(':senha', $dados['senha'], PDO::PARAM_STR);
+                $edit_usuario->bindParam(':cpf', $dados['cpf/cnpj'], PDO::PARAM_STR);
+                $edit_usuario->bindParam(':endereco', $dados['endereco'], PDO::PARAM_STR);
+                $edit_usuario->bindParam(':anotacoes', $dados['anotacoes'], PDO::PARAM_STR);
                 $edit_usuario->bindParam(':id', $id, PDO::PARAM_INT);
+                
                 if($edit_usuario->execute()){
                     $_SESSION['msg'] = "<p style='color: green; '>Usuario editado com sucesso !</p>";
-                    header("Location: index.php");
+                    header("Location: dashboard.php");
                 }
                 else{
                     echo "<p style='color: #f00; '>Error: Usuario não editado com sucesso !</p>";
                 }
             }
+
+                if($_SESSION['type'] == 'I'){
+                    $query_up_usuario = "UPDATE instituicao SET nome=:nome, email=:email, cnpj=:cnpj, endereco=:endereco, anotacoes=:anotacoes WHERE id=:id";
+                    $edit_usuario = $conn->prepare($query_up_usuario);
+                    $edit_usuario->bindParam(':nome', $dados['nome'], PDO::PARAM_STR);
+                    $edit_usuario->bindParam(':email', $dados['email'], PDO::PARAM_STR);
+                    $edit_usuario->bindParam(':cnpj', $dados['cpf/cnpj'], PDO::PARAM_STR);
+                    $edit_usuario->bindParam(':endereco', $dados['endereco'], PDO::PARAM_STR);
+                    $edit_usuario->bindParam(':anotacoes', $dados['anotacoes'], PDO::PARAM_STR);
+                    $edit_usuario->bindParam(':id', $id, PDO::PARAM_INT);
+                    
+                    if($edit_usuario->execute()){
+                        $_SESSION['msg'] = "<p style='color: green; '>Usuario editado com sucesso !</p>";
+                        header("Location: dashboard-i.php");
+                    }
+                    else{
+                        echo "<p style='color: #f00; '>Error: Usuario não editado com sucesso !</p>";
+                    }
+                }
         }
+    }
+    ?>
 
-        ?>
-
-        <form id="edit-usuario" method="POST" action="">
-            <label>Nome</label>
-            <input type="text" name="nome" id="nome" placeholder="" value="<?php 
-                if (isset($dados['nome'])){
-                echo $dados['nome'];
-                }
-                elseif(isset($row_usuario['nome'])){
-                    echo $row_usuario['nome'];
+    <form class="box" method="POST" action="">
+        <div class="foto">
+            <img src="img/Devs/MaxCaulfield.png">
+        </div>
+        <div class="Saudacao">
+            <p>Bem vindo!</p>
+        </div>
+        <div class="logo">
+            <img src="img/logoperfetita.png">
+        </div>
+        <form class="texts" method="POST">
+            <div class="box-user">
+                <label>Nome:</label>
+                <div class="linha1"><input type="text" name="nome" value="<?php 
+                if (isset($_SESSION['nome'])){
+                echo $_SESSION['nome'];
                 }?>"
-                ><br><br>
+                ></div>
+            </div>
 
-            <label>Email</label>
-            <input type="email" name="email" id="email" placeholder="" value="<?php 
-                if (isset($dados['email'])){
-                echo $dados['email'];
-                }
-
-                elseif(isset($row_usuario['email'])){
-                    echo $row_usuario['email'];
+            <div class="box-user">
+                <label>Email:</label>
+                <div class="linha2"><input type="text" name="email" value="<?php 
+                if (isset($_SESSION['email'])){
+                echo $_SESSION['email'];
                 }?>"
-                ><br><br>
+                ></div>
+            </div>
 
-            <label>Senha</label>
-            <input type="text" name="senha" id="senha" placeholder="" value="<?php 
-                if (isset($dados['senha'])){
-                    echo $dados['senha'];
+            <div class="box-user">
+                <label>CPF/CNPJ:</label>
+                <div class="linha3"><input type="text" name="cpf/cnpj" value="<?php 
+                if (isset($_SESSION['cpf'])){
+                echo $_SESSION['cpf'];
+                }else{
+                echo $_SESSION['cnpj'];
                 }
+                ?>"
+                ></div>
+            </div>
             
-                elseif(isset($row_usuario['senha'])){
-                    echo $row_usuario['senha'];
+            <div class="box-user">
+                <label>Endereço:</label>
+                <div class="linha4"><input type="text" name="endereco" value="<?php 
+                if (isset($_SESSION['endereco'])){
+                echo $_SESSION['endereco'];
                 }?>"
-                ><br><br>
+                ></div>
+            </div>
+            
+            <div class="box-user">
+                <label class="titulo">Anotações</label>
+                <div class="linha5"><input type="text" wrap="hard" name="anotacoes" value="<?php 
+                if (isset($_SESSION['anotacoes'])){
+                echo $_SESSION['anotacoes'];
+                }?>"
+                ></div>
+            </div>
+            
+            <a href="index.php"><span class="material-symbols-outlined">home</a></span>
+            <input type="submit" name="edit-usuario" class="botao">
+    </form>
 
-            <input type="submit" value="Atualizar" name="edit-usuario">
-        </form>
+</body>
 
-    </body>
 </html>

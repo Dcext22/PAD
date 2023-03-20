@@ -59,7 +59,7 @@ include_once './conexao.php';
                 <label>Nova senha</label>
             </div>
         <div>
-            <a href="index.html"><span class="material-symbols-outlined">home</a></span>
+            <a href="index.php"><span class="material-symbols-outlined">home</a></span>
         </div>
             <input type="submit" name="Redefinir" class="botao">
         </form>

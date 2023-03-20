@@ -1,0 +1,230 @@
+@import url("//fonts.googleapis.com/css2?family=Annie+Use+Your+Telescope:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap");
+
+
+*{
+
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+
+}
+
+form{
+    min-height:624px !important;
+   }
+
+body{
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size:cover;
+    min-height:585px;
+    background-position-x:0%;
+    background-position-y:0%;
+    background-repeat:repeat;
+    color:rgb(0, 0, 0);
+    background-clip:border-box;
+    background-size:100% 150%;
+
+}
+
+.box{
+    min-height:542px;
+    width:477px;
+    min-height:563px;
+    border-top-left-radius:6px;
+    border-color:#000000;
+    border-width:1px;
+    background-color:#eeecec;
+    border-style:solid;
+    border-top-right-radius:6px;
+    border-bottom-left-radius:6px;
+    border-bottom-right-radius:6px;
+    padding-left:0px;
+   }
+
+   .box .foto img{
+    display:inline-block;
+    height:131px;
+    transform:translatex(22px) translatey(9px);
+    min-height:120px;
+    border-style:solid;
+    border-width:1px;
+    border-top-left-radius:3px;
+    border-top-right-radius:3px;
+    border-bottom-left-radius:3px;
+    border-bottom-right-radius:3px;
+   }
+   
+   .box .Saudacao p{
+    min-height:37px;
+    transform:translatex(12px) translatey(-26px);
+    text-align:center;
+    font-weight:600;
+    font-family:'Courier New',Courier,'Lucida Sans Typewriter','Lucida Typewriter',monospace;
+    font-size:31px;
+    font-style:normal;
+    text-decoration:underline;
+    direction:ltr;
+    column-count:1;
+   }
+
+   .box .logo img{
+    display:inline-block;
+    transform:translatex(203px) translatey(-163px);
+    min-height:94px;
+    width:92px;
+    border-style:none;
+    border-width:1px;
+   }
+
+   .box .logo{
+    height:5px;
+   }
+
+   .box .box-user input[type=text]{
+    font-family:'Annie Use Your Telescope', handwriting;
+    font-size:26px;
+    background-color:rgba(255,255,255,0);
+    border-top-style:none;
+    border-right-style:none;
+    border-bottom-style:solid;
+    border-left-style:none;
+    border-left-width:2px;
+    border-left-color:#020202;
+    min-height:30px;
+    padding-right:1px;
+    width:381px;
+    transform:translatex(3px) translatey(0px);
+   }
+   
+   /* Box user */
+   .box .texts .box-user{
+    width:467px;
+    transform:translatex(8px) translatey(-5px);
+    min-height:44px;
+    width:460px;
+   }
+   
+   /* Label */
+   .box .box-user label{
+    font-size:21px;
+   }
+
+   .box .box-user{
+    transform:translatex(6px) translatey(-5px);
+    width:97% !important;
+   }
+
+   .box .box-user .linha1{
+    transform:translatex(68px) translatey(-34px);
+    width:87%;
+   }
+   
+   /* Input */
+   .box .linha1 input[type=text]{
+    width:383px;
+    transform:translatex(0px) translatey(4px);
+   }
+
+   .box .box-user{
+    height:55px;
+   }
+   
+   /* Linha2 */
+   .box .box-user .linha2{
+    transform:translatex(62px) translatey(-31px);
+    width:87%;
+   }
+   
+   /* Input */
+   .box .linha2 input[type=text]{
+    width:386px;
+    border-bottom-color:#020202;
+   }
+   
+   /* Input */
+   .box .linha1 input[type=text]{
+    border-bottom-color:#020202;
+   }
+   
+   /* Linha3 */
+   .box .box-user .linha3{
+    transform:translatex(115px) translatey(-40px);
+   }
+   
+   /* Input */
+   .box .linha3 input[type=text]{
+    width:333px;
+    transform:translatex(0px) translatey(9px);
+    border-bottom-color:#020202;
+   }
+   
+   /* Linha4 */
+   .box .box-user .linha4{
+    transform:translatex(99px) translatey(-33px);
+    width:76%;
+   }
+   
+   /* Input */
+   .box .linha4 input[type=text]{
+    width:349px;
+    border-bottom-color:#000000;
+   }
+
+   .box a span{
+    width:28px;
+    min-height:40px;
+    transform:translatex(431px) translatey(-434px);
+   }
+
+   .box .box-user .titulo{
+    display:inline-block;
+    height:32px;
+    transform:translatex(170px) translatey(0px);
+    font-weight:600;
+    font-size:25px;
+   }
+   
+   /* Linha5 */
+   .box .box-user .linha5{
+    min-height:110px;
+    transform:translatex(6px) translatey(0px);
+   }
+   
+   /* Input */
+   .box .linha5 input[type=text]{
+    min-height:93px;
+    height:93px;
+    text-align:center;
+    transform:translatex(16px) translatey(0px);
+    border-bottom-style:none;
+    width:423px;
+    font-weight:300;
+    font-size:20px;
+   }
+
+   .box .botao{
+    min-height:38px;
+    height:55px;
+    transform:translatex(-36px) translatey(-5px);
+    overflow:visible;
+    position:relative;
+    top:111px;
+    left:378px;
+    bottom:0px;
+    width:83px;
+    background-color:#faf9f9;
+    border-top-width:1px;
+    border-right-width:1px;
+    border-bottom-width:1px;
+    border-left-width:1px;
+    border-top-left-radius:7px;
+    border-top-right-radius:7px;
+    border-bottom-left-radius:7px;
+    border-bottom-right-radius:7px;
+   }
+   
+      

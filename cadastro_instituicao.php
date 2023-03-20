@@ -16,7 +16,7 @@ include_once './conexao.php';
     <head>
         <meta charset="UTF-8">
         <title>PAD - Cadastro</title>
-        <link rel="stylesheet" href="assets/css/cadastro.css">
+        <link rel="stylesheet" href="assets/css/cadastro_instituicao.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
 
@@ -24,7 +24,7 @@ include_once './conexao.php';
     <?php
         $dados = filter_input_array(INPUT_POST, FILTER_DEFAULT);
 
-        if (!empty($dados['cadusuario'])) {
+        if (!empty($dados['cadinstituicao'])) {
             
             $empty_input = false;
 
@@ -38,12 +38,12 @@ include_once './conexao.php';
             }
 
             if (!$empty_input) {
-                $query_usuario = "INSERT INTO usuarios (nome, email, cpf, senha, chave) VALUES (:nome, :email, :cpf, :senha, :chave)" ;
+                $query_usuario = "INSERT INTO instituicao (nome, cnpj, email, senha, chave) VALUES (:nome, :cnpj, :email, :senha, :chave)" ;
 
                 $cad_usuario = $conn->prepare($query_usuario);
                 $cad_usuario ->bindParam(':nome', $dados['nome'], PDO::PARAM_STR);
                 $cad_usuario ->bindParam(':email', $dados['email'], PDO::PARAM_STR);
-                $cad_usuario ->bindParam(':cpf', $dados['cpf'], PDO::PARAM_STR);
+                $cad_usuario ->bindParam(':cnpj', $dados['cnpj'], PDO::PARAM_STR);
                 $senha_cript = $dados['senha'];
                 $cad_usuario ->bindParam(':senha', $senha_cript, PDO::PARAM_STR);
                 $chave = bin2hex(random_bytes(16));
@@ -74,14 +74,14 @@ include_once './conexao.php';
                         $mail->Subject = 'Confirmação de Email';
                         
                         $mail->Body    = "caro(a) " . $dados['nome'] . "<br><br> por favor confirme o email para cadastro em nosso site <br><br>
-                        Para que o processo seja concluído por favor clique no link a seguir: <br><br> <a href='http://localhost/PAD/confirmar-email.php?chave=$chave'>Clique aqui</a>";
+                        Para que o processo seja concluído por favor clique no link a seguir: <br><br> <a href='http://localhost/PAD/confirmar-email-i.php?chave=$chave'>Clique aqui</a>";
                         
                         $mail->AltBody = "caro(a) " . $dados['nome'] . "\n\n por favor confirme o email para cadastro em nosso site \n\n
-                        Para que o processo seja concluído por favor clique no link a seguir: \n\n http://localhost/PAD/confirmar-email.php?chave=$chave";
+                        Para que o processo seja concluído por favor clique no link a seguir: \n\n http://localhost/PAD/confirmar-email-i.php?chave=$chave";
                     
                         $mail->send();
                         echo $_SESSION['msg'] = "<p style='color: green;'>Usuário cadastrado com sucesso! Por favor, confira seu e-mail !</p>";
-                        header("Location: confirmar-email.php");;
+                        header("Location: confirmar-email-i.php");;
 
                     }catch (Exception $e) {
                         echo "cadastro não pôde ser concluído: {$mail->ErrorInfo}";
@@ -89,7 +89,7 @@ include_once './conexao.php';
                     
                     unset($dados);
                     $_SESSION['msg'] = "<p style='color: green;'>Usuário cadastrado por favor cheque seu email!</p>";
-                    header("Location: confirmar-email.php");
+                    header("Location: confirmar-email-i.php");
                 }
                 else{
                     echo "<p style='color: #f00; '>Erro: Usuário não cadastrado !</p>";
@@ -101,17 +101,17 @@ include_once './conexao.php';
             <h2>Cadastro</h2>
             <div class="box-user">
                 <input type="text" name="nome">
-                <label>Nome</label>
+                <label>Nome da Instituição</label>
+            </div>
+
+            <div class="box-user">
+                <input type="text" name="cnpj">
+                <label>CNPJ</label>
             </div>
 
             <div class="box-user">
                 <input type="text" name="email">
                 <label>E-mail</label>
-            </div>
-
-            <div class="box-user">
-                <input type="text" name="cpf">
-                <label>CPF</label>
             </div>
 
             <div class="box-user">
@@ -122,7 +122,7 @@ include_once './conexao.php';
             <a href="login.php" class="cadastro">Já possui cadastro ?</a>
             <a href="index.php"><span class="material-symbols-outlined">home</a></span>
         </div>
-        <input type="submit" name="cadusuario" class="botao">
+        <input type="submit" name="cadinstituicao" class="botao">
     </form>
     </body>
 </html>

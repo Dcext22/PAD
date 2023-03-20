@@ -26,11 +26,6 @@ body{
 
 }
 
-form{
-    height:571px;
-    padding-top:39px !important;
-   }
-
 
 .login{
 
@@ -45,13 +40,11 @@ form{
 }
 
 .login a span{
-    position: relative;
     padding-bottom:5px;
-    transform:translatex(0px) translatey(-347px);
+    transform:translatex(0px) translatey(-268px);
     min-height:40px;
     width:51px;
    }
-
 
 .login h2{
 
@@ -149,7 +142,7 @@ p{
     color: white;
     position: absolute;
     margin-left: 0%;
-    margin-bottom: -25%;
+    margin-bottom: -30%;
 }
 
 
@@ -164,4 +157,9 @@ p{
     width:421% !important;
     border-radius: 5px;
     background-image: url("/img/logoperfetita.png");
-}
+   }
+
+   .login .choise{
+    min-height:30px;
+    color:#ffffff;
+   }

@@ -1,6 +1,11 @@
 <?php
 session_start();
 include_once './conexao.php';
+
+
+if($_SESSION['nome'] != 'admin'){
+    header("Location: index.php");
+}
 ?>
 <!DOCTYPE html> 
 

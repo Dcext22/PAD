@@ -14,9 +14,9 @@ if($_SESSION['nome'] == 'admin'){
 
 $id = $_SESSION['id'];
 
-$_SESSION['type'] = 'U';
+$_SESSION['type'] = 'I';
 
-$query_usuario = "SELECT id, nome, email, cpf, endereco, anotacoes FROM usuarios WHERE id = $id LIMIT 1";
+        $query_usuario = "SELECT id, nome, email, cnpj, endereco, anotacoes FROM instituicao WHERE id = $id LIMIT 1";
         $result_usuario = $conn->prepare($query_usuario);
         $result_usuario->execute();
 
@@ -24,7 +24,7 @@ $query_usuario = "SELECT id, nome, email, cpf, endereco, anotacoes FROM usuarios
             $row_usuario = $result_usuario->fetch(PDO::FETCH_ASSOC);
             $_SESSION['nome'] = $row_usuario['nome'];
             $_SESSION['email'] = $row_usuario['email'];
-            $_SESSION['cpf'] = $row_usuario['cpf'];
+            $_SESSION['cnpj'] = $row_usuario['cnpj'];
             $_SESSION['endereco'] = $row_usuario['endereco'];
             $_SESSION['anotacoes'] = $row_usuario['anotacoes'];
         }
@@ -36,7 +36,7 @@ $query_usuario = "SELECT id, nome, email, cpf, endereco, anotacoes FROM usuarios
 <head>
     <meta charset="UTF-8">
     <title>PAD - Conta</title>
-    <link rel="stylesheet" href="assets/css/dash.css">
+    <link rel="stylesheet" href="assets/css/dash-i.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
 
@@ -53,13 +53,13 @@ $query_usuario = "SELECT id, nome, email, cpf, endereco, anotacoes FROM usuarios
         </div>
         <div class="texts">
             <div class="nome">
-                <p>Nome: <div class="texto"> <?php echo $_SESSION['nome']; ?></div></p>
+                <p>Instituição: <div class="texto"> <?php echo $_SESSION['nome']; ?></div></p>
             </div>
             <div class="email">
                 <p>Email: <div class="texto"> <?php echo $_SESSION['email']; ?></div></p>
             </div>
-            <div class="CPF">
-                <p>CPF: <div class="texto"> <?php echo $_SESSION['cpf']; ?></div></p>
+            <div class="CNPJ">
+                <p>CNPJ: <div class="texto"> <?php echo $_SESSION['cnpj']; ?></div></p>
             </div>
             <div class="Endereco">
                 <p>Endereço: <div class="texto"> <?php echo $_SESSION['endereco']; ?></div></p>
